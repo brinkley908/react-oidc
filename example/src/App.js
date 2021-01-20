@@ -4,6 +4,12 @@ import { Route, Switch } from "react-router-dom";
 import { AuthProvider } from "@spekta/react-oidc";
 import { Callback } from "./components/callback";
 import { Logout } from "./components/logout";
+import { LogoutCallback } from "./components/logoutCallback";
+import { Register } from "./components/register";
+import { SilentRenew } from "./components/silentRenew";
+import { PublicPage } from "./components/publicPage";
+import { PrivatePage } from "./components/privatePage";
+import { PrivateRoute } from "./routes/privateRoute";
 
 import '@spekta/react-oidc/dist/index.css'
 
