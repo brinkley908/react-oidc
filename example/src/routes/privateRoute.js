@@ -5,15 +5,13 @@ import { AuthConsumer } from "@spekta/react-oidc";
 export const PrivateRoute = ({ component, ...rest }) => {
     const renderFn = (Component) => (props) => (
         <AuthConsumer>
-            
-
-            {({ isAuthenticated, signinRedirect, getToken }) => {
+            {({ isAuthenticated, signinRedirect }) => {
                 
                 if (!!Component && isAuthenticated()) {
                     return <Component {...props} />;
                 } else {
                     signinRedirect();
-                    return <span>{ getToken() }</span>;
+                    return <span>Loading...</span>;
                 }
             }}
         </AuthConsumer>

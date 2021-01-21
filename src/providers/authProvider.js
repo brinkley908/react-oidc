@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React, { Component } from "react";
 import AuthService from "../service/authService";
 
@@ -10,7 +9,7 @@ const AuthContext = React.createContext({
     signinRedirect: () => ({}),
     signinSilentCallback: () => ({}),
     createSigninRequest: () => ({}),
-    getToken: () => ({}),
+    getAccessToken: () => ({}),
     getUserManager: () => ({})
 });
 
@@ -22,7 +21,6 @@ export class AuthProvider extends Component {
     constructor(props) {
         super(props);
         this.authService = new AuthService();
-        
     }
     
     render() {
