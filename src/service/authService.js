@@ -1,4 +1,5 @@
-import { UserManager, WebStorageStateStore, Log } from "oidc-client";
+import { UserManager, WebStorageStateStore, Log } from 'oidc-client';
+import {configureIdentityConfig, configureMetaData}  from '../utils/config';
 
 export default class AuthService {
     UserManager;
@@ -7,6 +8,10 @@ export default class AuthService {
 
     constructor(identityConfig, metaData, localStore, logger){
   
+        identityConfig = configureIdentityConfig(identityConfig);
+
+        metaData = configureMetaData(metaData);
+
         this.localStore = localStore;
 
         this.identityConfig = identityConfig;
@@ -77,35 +82,30 @@ export default class AuthService {
     };
 
 
-    getAuthority = () => {
-        if(this.identityConfig === undefined  || this.identityConfig.authority === undefined){
-            return process.env.REACT_APP_AUTH_URL;
-        }
-        return this.identityConfig.authority;
-    }
+  
 
     getClientId = () => {
         if(this.identityConfig === undefined  || this.identityConfig.client_id === undefined){
-            return process.env.REACT_APP_IDENTITY_CLIENT_ID;
+            return process.env.REACT_APP_OIDC_CLIENT_ID;
         }
         return this.identityConfig.client_id;
     }
 
     getStorage = () => {
         const storage = this.localStore ? localStorage : sessionStorage;
-        const result = JSON.parse(storage.getItem(`oidc.user:${this.getAuthority()}:${this.getClientId()}`));
+        const result = JSON.parse(storage.getItem(`oidc.user:${this.identityConfig.authority}:${this.identityConfig.client_id}`));
         return result;
     }
 
     isAuthenticated = () => {
         const storage = this.localStore ? localStorage : sessionStorage;
-        const oidcStorage = JSON.parse(storage.getItem(`oidc.user:${this.getAuthority()}:${this.getClientId()}`))
+        const oidcStorage = JSON.parse(storage.getItem(`oidc.user:${this.identityConfig.authority}:${this.identityConfig.client_id}`))
         return (!!oidcStorage && !!oidcStorage.access_token)
     };
 
     getAccessToken = () => {
         const storage = this.localStore ? localStorage : sessionStorage;
-        const oidcStorage = JSON.parse(storage.getItem(`oidc.user:${this.getAuthority()}:${this.getClientId()}`))
+        const oidcStorage = JSON.parse(storage.getItem(`oidc.user:${this.identityConfig.authority}:${this.identityConfig.client_id}`))
         if (!!oidcStorage && !!oidcStorage.access_token) {
             return oidcStorage.access_token;
         }
