@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
+import { Route } from "react-router-dom";
 import AuthService from './service/authService'
 
 import styles from './styles.module.css'
-
-export const ExampleComponent = ({ text }) => {
-  return <div className={styles.test}>Example Component: {text}</div>
-}
 
 const AuthContext = React.createContext({
   signinRedirectCallback: () => ({}),
@@ -15,7 +12,7 @@ const AuthContext = React.createContext({
   signinRedirect: () => ({}),
   signinSilentCallback: () => ({}),
   createSigninRequest: () => ({}),
-  getToken: () => ({}),
+  getAccessToken: () => ({}),
   getUserManager: () => ({})
 })
 
@@ -42,3 +39,27 @@ export class AuthProvider extends Component {
     )
   }
 }
+
+export const AuthRoute = ({ component, loadingComponent, ...rest }) => {
+
+  const loading = !!loadingComponent 
+                  ? loadingComponent 
+                  : <span>loading...</span>
+
+  const renderRoute = (Component) => (props) => (
+      <AuthConsumer>
+          {({ isAuthenticated, signinRedirect, getAccessToken }) => {
+              const accessToken = getAccessToken();
+
+              if (!!Component && isAuthenticated()) {
+                  return <Component {...props} accessToken={accessToken} />;
+              } else {
+                  signinRedirect();
+                  return  {loading};
+              }
+          }}
+      </AuthConsumer>
+  );
+
+  return <Route {...rest} render={renderRoute(component)} />;
+};

@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable prettier/prettier */
 import { UserManager, WebStorageStateStore, Log } from "oidc-client";
 
 export default class AuthService {
@@ -105,7 +103,7 @@ export default class AuthService {
         return (!!oidcStorage && !!oidcStorage.access_token)
     };
 
-    getToken = () => {
+    getAccessToken = () => {
         const storage = this.localStore ? localStorage : sessionStorage;
         const oidcStorage = JSON.parse(storage.getItem(`oidc.user:${this.getAuthority()}:${this.getClientId()}`))
         if (!!oidcStorage && !!oidcStorage.access_token) {
