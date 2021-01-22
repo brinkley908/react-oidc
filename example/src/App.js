@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter } from "react-router-dom";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, BrowserRouter } from "react-router-dom";
 import { AuthProvider, AuthRoute } from "@spekta/react-oidc";
 import { Callback } from "./components/callBack";
 import { Logout } from "./components/logout";
