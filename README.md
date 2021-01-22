@@ -10,9 +10,16 @@
 npm install --save @spekta/react-oidc
 ```
 
+## Auth Provider Parameters
+logger (optional) logger={console}<br>
+localStore (optional, default=true) use localStorage or sessionStorage<br>
+identityConfig (optional default .env variables)<br>
+metaData (optional default .env variables)
+
 ## Usage with .env
 
 If AuthProvider is used without authority configuration parameters .env variables are assumed.
+
 
 ```jsx
 import React, { Component } from "react";
