@@ -11,7 +11,7 @@ npm install --save @spekta/react-oidc
 ```
 
 ## Auth Provider Parameters
-l<b>logger</b> (optional) logger={console}<br>
+<b>logger</b> (optional) logger={console}<br>
 <b>localStore</b> (optional, default=true) use localStorage or sessionStorage<br>
 <b>identityConfig</b> (optional default .env variables)<br>
 <b>metaData</b> (optional default .env variables)
