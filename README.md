@@ -83,7 +83,7 @@ REACT_APP_OIDC_USER_INFO_ENDPOINT=https://localhost:44395/connect/userinfo
 REACT_APP_OIDC_END_SESSION_ENDPOINT=https://localhost:44395/connect/endsession
 REACT_APP_OIDC_CHECK_SESSION_IFRAME=https://localhost:44395/connect/checksession
 REACT_APP_OIDC_REVOCATION_ENDPOINT=https://localhost:44395/connect/revocation
-REACT_APP_OIDC_INTROPSPECTION_ENDPOINT=https://localhost:44395/connect/itrospect
+REACT_APP_OIDC_INTROPSPECTION_ENDPOINT=https://localhost:44395/connect/introspect
 ```
 
 ## Usage with configuration parameters
