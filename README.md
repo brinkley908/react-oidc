@@ -11,14 +11,14 @@ npm install --save @spekta/react-oidc
 ```
 
 ## Auth Provider Parameters
-logger (optional) logger={console}<br>
-localStore (optional, default=true) use localStorage or sessionStorage<br>
-identityConfig (optional default .env variables)<br>
-metaData (optional default .env variables)
+l<b>logger</b> (optional) logger={console}<br>
+<b>localStore</b> (optional, default=true) use localStorage or sessionStorage<br>
+<b>identityConfig</b> (optional default .env variables)<br>
+<b>metaData</b> (optional default .env variables)
 
 ## Usage with .env
 
-If AuthProvider is used without authority configuration parameters .env variables are assumed.
+If <b>AuthProvider</b> is used without authority configuration parameters .env variables are assumed.
 
 
 ```jsx
@@ -87,7 +87,7 @@ REACT_APP_OIDC_INTROPSPECTION_ENDPOINT=https://localhost:44395/connect/introspec
 ```
 
 ## Usage with configuration parameters
-Authority configuration parameters can be passed to the AuthProvider component. These can also contain environment variables
+Authority configuration parameters can be passed to the <b>AuthProvider</b> component. These can also contain environment variables
 
 ```jsx
 import React, { Component } from "react";
@@ -160,7 +160,7 @@ export const METADATA_OIDC = {
 ```
 
 ## AuthRoute
-AuthRoute is similar to  ./routes/privateRoute in the example code. It passes the access token as parameter to its component attribute.
+<b>AuthRoute</b> is similar to  ./routes/privateRoute in the example code. It passes the access token as parameter to its component attribute.
 
 ```jsx
 ...
