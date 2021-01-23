@@ -60,7 +60,7 @@ export default class App extends Component {
 ## .env
 ```jsx
 REACT_APP_OIDC_AUTHORITY=https://localhost:44395
-REACT_APP_OIDC_CLIENT_ID=example
+REACT_APP_OIDC_CLIENT_ID=Travelx-React-Client
 REACT_APP_OIDC_REDIRECT_URL=http://localhost:3000/signin-oidc
 REACT_APP_OIDC_LOGIN=https://localhost:44395/account/login
 REACT_APP_OIDC_PUBLIC_URL=http://localhost:3000
@@ -71,7 +71,7 @@ REACT_APP_OIDC_LOAD_USER_INFO=true
 REACT_APP_OIDC_RESPONSE_TYPE=code
 REACT_APP_OIDC_RESPONSE_MODE=fragment
 REACT_APP_OIDC_GRANT_TYPE=pasword
-REACT_APP_OIDC_SCOPE=openid profile email roles dataEventRecords offline_access
+REACT_APP_OIDC_SCOPE=openid profile email roles travelxData offline_access
 REACT_APP_OIDC_WEB_AUTH_RESPONSE_TYPE=code
 REACT_APP_OIDC_AUDIENCE=https://example.com
 
@@ -85,6 +85,15 @@ REACT_APP_OIDC_CHECK_SESSION_IFRAME=https://localhost:44395/connect/checksession
 REACT_APP_OIDC_REVOCATION_ENDPOINT=https://localhost:44395/connect/revocation
 REACT_APP_OIDC_INTROPSPECTION_ENDPOINT=https://localhost:44395/connect/introspect
 ```
+
+The OpenIdicct Auth Server and Resource Service can be found at https://github.com/brinkley908/OpenIddictSample
+<br><br>
+<b>Please Note</b><br> 
+The Auth Server has been coded using .NET Core 5.0.<br>
+The Resource Service is cooded using React to serve Micro Front End Components and .NET Core for data.
+Client side Micro Front End components will be inlcuded in the @spekta/react-mfe npm package using @spekta/react-oidc for components that additionally return data. (https://www.npmjs.com/package/@spekta/react-mfe)
+
+
 
 ## Usage with configuration parameters
 Authority configuration parameters can be passed to the <b>AuthProvider</b> component. These can also contain environment variables
