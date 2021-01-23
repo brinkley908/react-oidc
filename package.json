@@ -1,6 +1,6 @@
 {
   "name": "@spekta/react-oidc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This extends oidc-client for easy to use authorisation",
   "author": "brinkley908",
   "license": "MIT",
